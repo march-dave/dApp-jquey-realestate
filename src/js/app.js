@@ -86,7 +86,7 @@ App = {
               break;
           }
 
-          $('.panel-realEstate').eq(i).find('.btn-buy').text('매각').attr('disabled', true);
+          $('.panel-realEstate').eq(i).find('.btn-buy').text('Sold').attr('disabled', true);
           $('.panel-realEstate').eq(i).find('.btn-buyerInfo').removeAttr('style');
         }
       }
@@ -99,7 +99,7 @@ App = {
 	  App.contracts.RealEstate.deployed().then(function(instance) {
       instance.LogBuyRealEstate({}, { fromBlock: 0, toBlock: 'latest' }).watch(function(error, event) {
         if (!error) {
-          $('#events').append('<p>' + event.args._buyer + ' 계정에서 ' + event.args._id + ' 번 매물을 매입했습니다.' + '</p>');
+          $('#events').append('<p>' + event.args._buyer + ' From Account #' + event.args._id + ' bought this house.' + '</p>');
         } else {
           console.error(error);
         }
