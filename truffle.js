@@ -11,10 +11,18 @@ module.exports = {
                network_id: "*" // Match any network id
           },
           ropsten: {
+            provider: function() {
+                return new HDWalletProvider(mnemonic, '')
+            },
+            network_id: '3',
+            gas: 4500000,
+            gasPrice: 10000000000,
+          },
+          kovan: {
               provider: function() {
                   return new HDWalletProvider(mnemonic, '')
               },
-              network_id: '3',
+              network_id: '4',
               gas: 4500000,
               gasPrice: 10000000000,
           }
